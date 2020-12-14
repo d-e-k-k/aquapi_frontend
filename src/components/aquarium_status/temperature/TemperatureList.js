@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import datepicker from 'js-datepicker';
 
 const TemperatureList = () => {
     const [temperatureData, setTemperatureData] = useState()
+    const [endDate, setEndDate] = useState()
+    const[startDate, setStartDate] = useState()
     // const url = 'https://mighty-lake-45709.herokuapp.com/temperatures';
     const url = "./temp_seeds.json"
 	useEffect(() => {
