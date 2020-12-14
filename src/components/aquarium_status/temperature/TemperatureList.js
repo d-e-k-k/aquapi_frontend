@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import datepicker from 'js-datepicker';
+import moment from 'moment';
 
 const TemperatureList = () => {
 	const [temperatureData, setTemperatureData] = useState();
-	const [date, setDate] = useState()
-    const [showTemperatures, setShowTemperatures] = useState(false);
-    const[refresh, setRefresh] = useState(false)
+	const [date, setDate] = useState();
+	const [showTemperatures, setShowTemperatures] = useState(false);
+	const [refresh, setRefresh] = useState(false);
 
-    function handleDateChange(event) {
-			setDate({ ...date, [event.target.id]: event.target.value });
-        }
-        
+	const m = moment();
+	let current_formatted_date = `${m.date()}-${m.month()}-${m.year()}`;
+
+	function handleDateChange(event) {
+		setDate({ ...date, [event.target.id]: event.target.value });
+	}
+
 	// const url = 'https://mighty-lake-45709.herokuapp.com/temperatures';
 	const url = './temp_seeds.json';
 	useEffect(() => {
@@ -28,22 +31,39 @@ const TemperatureList = () => {
 	function toggleShowTemperatures() {
 		showTemperatures ? setShowTemperatures(false) : setShowTemperatures(true);
 	}
+
+	function handleDateRangeSubmint(event) {
+		event.preventDefault();
+	}
+
 	return (
 		<div>
 			<h3 onClick={toggleShowTemperatures}>Temperatures</h3>
 			{showTemperatures ? (
 				<div>
-                    <form>
-                        <label>
-                            Start Date:
-                            <input type='text' id='start' required onChange={handleDateChange}/>
-                        </label>
-                        <label>
-                            End Date: 
-                            <input type='text' id='end' required onChange={handleDateChange} />
-                        </label>
-                        <input type='submit'/>
-                    </form>
+					<form onSubmit={handleDateRangeSubmint}>
+						<label>
+							Start Date:
+							<input
+								type='text'
+								id='start'
+								value={current_formatted_date}
+								required
+								onChange={handleDateChange}
+							/>
+						</label>
+						<label>
+							End Date:
+							<input
+								type='text'
+								id='end'
+								value={current_formatted_date}
+								required
+								onChange={handleDateChange}
+							/>
+						</label>
+						<input type='submit' />
+					</form>
 					<ul>
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {
@@ -57,9 +77,7 @@ const TemperatureList = () => {
 							: null}
 					</ul>
 				</div>
-			) : (
-				null
-			)}
+			) : null}
 		</div>
 	);
 };
