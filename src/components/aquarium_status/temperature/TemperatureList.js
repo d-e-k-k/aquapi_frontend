@@ -28,6 +28,17 @@ const TemperatureList = () => {
 			<h3 onClick={toggleShowTemperatures}>Temperatures</h3>
 			{showTemperatures ? (
 				<div>
+                    <form>
+                        <label>
+                            Start Date:
+                            <input type='text' id='start' required/>
+                        </label>
+                        <label>
+                            End Date: 
+                            <input type='text' id='end' required/>
+                        </label>
+                        <input type='submit'/>
+                    </form>
 					<ul>
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {
