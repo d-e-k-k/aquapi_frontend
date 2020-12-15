@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DateRangeForm from './DateRangeForm';
+import moment from 'moment'
 
+const m = moment();
+let current_formatted_date = `${m.date()}-${m.month()}-${m.year()}`;
 
 const TemperatureList = () => {
 	const [temperatureData, setTemperatureData] = useState();
 	const [showTemperatures, setShowTemperatures] = useState(false);
+	const [date, setDate] = useState({
+		start: current_formatted_date,
+		end: current_formatted_date,
+	});
 	const [refresh, setRefresh] = useState(false);
+	
 
 	
 
@@ -36,7 +44,7 @@ const TemperatureList = () => {
 			<h3 onClick={toggleShowTemperatures}>Temperatures</h3>
 			{showTemperatures ? (
 				<div>
-					<DateRangeForm />
+					<DateRangeForm date={date} setDate={setDate} refresh={refresh} setRefresh={setRefresh}/>
 					<ul>
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {

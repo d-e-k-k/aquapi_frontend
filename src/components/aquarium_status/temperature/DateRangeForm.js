@@ -1,16 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import moment from 'moment'
-
-const m = moment();
-let current_formatted_date = `${m.date()}-${m.month()}-${m.year()}`;
+import React, {useState} from 'react';
 
 
 
-const DateRangeForm = () => {
-	const [date, setDate] = useState({
-		start: current_formatted_date,
-		end: current_formatted_date
-	});
+
+
+
+const DateRangeForm = ({date, setDate, refresh, setRefresh}) => {
+	
 
 	function handleDateChange(event){
 		setDate({...date, [event.target.id]: event.target.value})
@@ -18,6 +14,8 @@ const DateRangeForm = () => {
 	function handleDateRangeSubmint(event) {
 		event.preventDefault();
 	}
+
+	
 	return (
 		<form onSubmit={handleDateRangeSubmint}>
 			<label>
