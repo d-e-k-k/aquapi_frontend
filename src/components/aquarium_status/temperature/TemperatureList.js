@@ -4,7 +4,7 @@ import DateRangeForm from './DateRangeForm';
 import moment from 'moment'
 
 const m = moment();
-let current_formatted_date = `${m.date()}-${m.month()}-${m.year()}`;
+let current_formatted_date = `${m.date()}-${m.month()+1}-${m.year()}`;
 
 const TemperatureList = () => {
 	const [temperatureData, setTemperatureData] = useState();
@@ -16,8 +16,8 @@ const TemperatureList = () => {
 	const [refresh, setRefresh] = useState(false);
 	
 
-	// const url = 'https://mighty-lake-45709.herokuapp.com/temperatures/';
-	const url = 'http://localhost:8000/temperatures/range/';
+	const url = 'https://mighty-lake-45709.herokuapp.com/temperatures/range/';
+	// const url = 'http://localhost:8000/temperatures/range/';
 	// const url = './temp_seeds.json';
 	useEffect(() => {
 		axios.get(url, {params: {start: date.start,
