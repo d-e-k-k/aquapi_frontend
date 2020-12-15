@@ -10,12 +10,12 @@ h1 {
     color: blue;
 }
 
-ul{
+header > ul{
     list-style: none;
     display: flex;
     justify-content: space-around;
 }
 
-li{
+header > li{
     display: inline-block;
 }
