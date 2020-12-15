@@ -16,22 +16,19 @@ const TemperatureList = () => {
 	const [refresh, setRefresh] = useState(false);
 	
 
-	
-
-
-
-	// const url = 'https://mighty-lake-45709.herokuapp.com/temperatures';
-	const url = './temp_seeds.json';
+	// const url = 'https://mighty-lake-45709.herokuapp.com/temperatures/';
+	const url = 'http://localhost:8000/temperatures/range/';
+	// const url = './temp_seeds.json';
 	useEffect(() => {
-		axios({
-			method: 'GET',
-			url: url,
+		axios.get(url, {params: {start: date.start,
+		end: date.end  }})
+		.then(res => {
+			console.log(res.data);
+			setTemperatureData(res.data)
+			
 		})
-			.then((res) => {
-				setTemperatureData(res.data);
-			})
-			.catch(console.error);
-	}, []);
+		.catch(console.error)
+	}, [refresh]);
 
 	function toggleShowTemperatures() {
 		showTemperatures ? setShowTemperatures(false) : setShowTemperatures(true);

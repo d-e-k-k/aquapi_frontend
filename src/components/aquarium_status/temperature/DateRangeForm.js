@@ -13,6 +13,7 @@ const DateRangeForm = ({date, setDate, refresh, setRefresh}) => {
 	}
 	function handleDateRangeSubmint(event) {
 		event.preventDefault();
+		refresh ? setRefresh(false) : setRefresh(true);
 	}
 
 	
