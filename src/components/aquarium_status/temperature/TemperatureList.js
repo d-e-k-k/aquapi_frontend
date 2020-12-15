@@ -57,7 +57,7 @@ const TemperatureList = () => {
 					</ul>
 				</div>
 			) : null}
-			<TemperatureGraph />
+			<TemperatureGraph temperatureData={temperatureData}/>
 		</div>
 	);
 };
