@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import moment from 'moment';
+import DateRangeForm from './DateRangeForm';
+
 
 const TemperatureList = () => {
 	const [temperatureData, setTemperatureData] = useState();
-	const [date, setDate] = useState();
 	const [showTemperatures, setShowTemperatures] = useState(false);
 	const [refresh, setRefresh] = useState(false);
 
-	const m = moment();
-	let current_formatted_date = `${m.date()}-${m.month()}-${m.year()}`;
+	
 
-	function handleDateChange(event) {
-		setDate({ ...date, [event.target.id]: event.target.value });
-	}
+
 
 	// const url = 'https://mighty-lake-45709.herokuapp.com/temperatures';
 	const url = './temp_seeds.json';
@@ -32,38 +29,14 @@ const TemperatureList = () => {
 		showTemperatures ? setShowTemperatures(false) : setShowTemperatures(true);
 	}
 
-	function handleDateRangeSubmint(event) {
-		event.preventDefault();
-	}
+
 
 	return (
 		<div>
 			<h3 onClick={toggleShowTemperatures}>Temperatures</h3>
 			{showTemperatures ? (
 				<div>
-					<form onSubmit={handleDateRangeSubmint}>
-						<label>
-							Start Date:
-							<input
-								type='text'
-								id='start'
-								value={current_formatted_date}
-								required
-								onChange={handleDateChange}
-							/>
-						</label>
-						<label>
-							End Date:
-							<input
-								type='text'
-								id='end'
-								value={current_formatted_date}
-								required
-								onChange={handleDateChange}
-							/>
-						</label>
-						<input type='submit' />
-					</form>
+					<DateRangeForm />
 					<ul>
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {
