@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DateRangeForm from './DateRangeForm';
 import moment from 'moment'
+import TemperatureGraph from './TemperatureGraph';
 
 const m = moment();
 let current_formatted_date = `${m.date()}-${m.month()+1}-${m.year()}`;
@@ -23,8 +24,8 @@ const TemperatureList = () => {
 		axios.get(url, {params: {start: date.start,
 		end: date.end  }})
 		.then(res => {
-			console.log(res.data);
 			setTemperatureData(res.data)
+	
 			
 		})
 		.catch(console.error)
@@ -46,7 +47,7 @@ const TemperatureList = () => {
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {
 									return (
-										<li>
+										<li key={temperatureObj.id}>
 											Date: {temperatureObj.date} Time: {temperatureObj.time}{' '}
 											Temp F: {temperatureObj.temperature.toFixed(2)}
 										</li>
@@ -56,6 +57,7 @@ const TemperatureList = () => {
 					</ul>
 				</div>
 			) : null}
+			<TemperatureGraph />
 		</div>
 	);
 };
