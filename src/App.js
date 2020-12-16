@@ -1,14 +1,23 @@
-import React, {Component} from 'react';
-import NavBar from './components/navbar/NavBar';
-import Login from './components/login/Login';
-import AquariumStatus from './components/aquarium_status/AquariumStatus'
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Login />
-      <AquariumStatus />
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
