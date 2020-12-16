@@ -37,31 +37,35 @@ const TemperatureList = () => {
 			<h3 onClick={toggleShowTemperatures}>Temperatures</h3>
 			{showTemperatures ? (
 				<div>
+					
 					<DateRangeForm
 						date={date}
 						setDate={setDate}
 						refresh={refresh}
 						setRefresh={setRefresh}
 					/>
-					<TemperatureGraph temperatureData={temperatureData} />
-					<table>
-						<tr>
-							<th>Date</th>
-							<th>Time</th>
-							<th>Temperature</th>
-						</tr>
-						{temperatureData
-							? temperatureData.map((data) => {
-									return (
-										<tr key={data.key}>
-											<td>{data.date}</td>
-											<td>{data.time}</td>
-											<td>{data.temperature}</td>
-										</tr>
-									);
-							  })
-							: null}
-					</table>
+					<div class='graph-table-con'>
+						
+						<TemperatureGraph temperatureData={temperatureData}/>
+						<table id='customers' class='table'>
+							<tr>
+								<th>Date</th>
+								<th>Time</th>
+								<th>Temperature</th>
+							</tr>
+							{temperatureData
+								? temperatureData.map((data) => {
+										return (
+											<tr key={data.key}>
+												<td>{data.date}</td>
+												<td>{data.time}</td>
+												<td>{data.temperature}</td>
+											</tr>
+										);
+								  })
+								: null}
+						</table>
+					</div>
 					{/* <ul>
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {
