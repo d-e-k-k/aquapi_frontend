@@ -9,7 +9,11 @@ table, td, th {
 
 table{
     border-collapse: collapse;
-    width: 100%;
+    /* width: 320;
+    height: 100;
+    overflow: auto; */
+    table-layout:fixed;
+    width:100%;
 }
 
 #customers th {
@@ -22,14 +26,18 @@ table{
 
 .graph-table-con {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 800px;
+    /* grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1000px; */
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 500px;
 }
 
+
 .graph{
-    width: 100%;
+    display: block;
     grid-column: 1 / span 1;
     grid-row: 1 / span 1;
+    overflow: auto;
 }
 
 .table{

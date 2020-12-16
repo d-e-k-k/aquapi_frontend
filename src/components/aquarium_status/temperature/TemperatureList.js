@@ -3,6 +3,7 @@ import axios from 'axios';
 import DateRangeForm from './DateRangeForm';
 import moment from 'moment';
 import TemperatureGraph from './TemperatureGraph';
+import TemperatureTable from './TemperatureTable'
 
 const m = moment();
 let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
@@ -34,10 +35,9 @@ const TemperatureList = () => {
 
 	return (
 		<div>
-			<h3 onClick={toggleShowTemperatures}>Temperatures</h3>
+			{<h3 onClick={toggleShowTemperatures}>Temperatures</h3>}
 			{showTemperatures ? (
 				<div>
-					
 					<DateRangeForm
 						date={date}
 						setDate={setDate}
@@ -45,39 +45,29 @@ const TemperatureList = () => {
 						setRefresh={setRefresh}
 					/>
 					<div class='graph-table-con'>
-						
-						<TemperatureGraph temperatureData={temperatureData}/>
-						<table id='customers' class='table'>
-							<tr>
-								<th>Date</th>
-								<th>Time</th>
-								<th>Temperature</th>
-							</tr>
-							{temperatureData
-								? temperatureData.map((data) => {
-										return (
-											<tr key={data.key}>
-												<td>{data.date}</td>
-												<td>{data.time}</td>
-												<td>{data.temperature}</td>
-											</tr>
-										);
-								  })
-								: null}
-						</table>
+						<TemperatureGraph temperatureData={temperatureData} class='graph' />
+						<TemperatureTable temperatureData={temperatureData}/>
+						{/* <div class='table'>
+							<table id='customers'>
+								<tr>
+									<th>Date</th>
+									<th>Time</th>
+									<th>Temperature</th>
+								</tr>
+								{temperatureData
+									? temperatureData.map((data) => {
+											return (
+												<tr key={data.id}>
+													<td>{data.date}</td>
+													<td>{data.time}</td>
+													<td>{data.temperature}</td>
+												</tr>
+											);
+									  })
+									: null}
+							</table>
+						</div> */}
 					</div>
-					{/* <ul>
-						{temperatureData
-							? temperatureData.map((temperatureObj) => {
-									return (
-										<li key={temperatureObj.id}>
-											Date: {temperatureObj.date} Time: {temperatureObj.time.slice(0,5)}{' '}
-											Temp F: {temperatureObj.temperature.toFixed(2)}
-										</li>
-									);
-							  })
-							: null}
-					</ul> */}
 				</div>
 			) : null}
 		</div>
@@ -85,3 +75,39 @@ const TemperatureList = () => {
 };
 
 export default TemperatureList;
+
+// <div>
+// 	{/* <h3 onClick={toggleShowTemperatures}>Temperatures</h3>
+// 	{showTemperatures ?  */}
+// 	{/* // 	<div> */}
+
+//  		{/* <DateRangeForm
+// 	// 			date={date}
+// 	// 			setDate={setDate}
+// 	// 			refresh={refresh}
+// 	// 			setRefresh={setRefresh}
+// 	// 		/> */}
+// 	// 		<div class='graph-table-con'>
+
+// 	// 			<TemperatureGraph temperatureData={temperatureData}/>
+// 	// 			<table id='customers' class='table'>
+// 	// 				<tr>
+// 	// 					<th>Date</th>
+// 	// 					<th>Time</th>
+// 	// 					<th>Temperature</th>
+// 	// 				</tr>
+// 	// 				{temperatureData
+// 	// 					? temperatureData.map((data) => {
+// 	// 							return (
+// 	// 								<tr key={data.key}>
+// 	// 									<td>{data.date}</td>
+// 	// 									<td>{data.time}</td>
+// 	// 									<td>{data.temperature}</td>
+// 	// 								</tr>
+// 	// 							);
+// 	// 					  })
+// 	// 					: null}
+// 	// 			</table>
+// 	// 		</div>
+// 	// </div>
+// </div>
