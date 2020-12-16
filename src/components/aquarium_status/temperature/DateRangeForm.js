@@ -1,22 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-
-
-
-
-
-const DateRangeForm = ({date, setDate, refresh, setRefresh}) => {
-	
-
-	function handleDateChange(event){
-		setDate({...date, [event.target.id]: event.target.value})
+const DateRangeForm = ({ date, setDate, refresh, setRefresh }) => {
+	function handleDateChange(event) {
+		setDate({ ...date, [event.target.id]: event.target.value });
 	}
 	function handleDateRangeSubmint(event) {
 		event.preventDefault();
 		refresh ? setRefresh(false) : setRefresh(true);
 	}
 
-	
 	return (
 		<form onSubmit={handleDateRangeSubmint}>
 			<label>
