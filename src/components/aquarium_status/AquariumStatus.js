@@ -4,6 +4,7 @@ import EquipmentInfo  from './equipment_info/EquipmentInfo'
 import FishInfo from './fish_info/FishInfo'
 import TemperatureList from './temperature/TemperatureList'
 import axios from 'axios'
+import WaterChange from './water_change/WaterChange';
 
 
 const AquariumStatus = () => {
@@ -16,6 +17,7 @@ const AquariumStatus = () => {
 				<BasicInfo />
 				<EquipmentInfo />
                 <FishInfo />
+				<WaterChange />
                 <TemperatureList />
 			</div>
 		</div>
