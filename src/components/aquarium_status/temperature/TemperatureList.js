@@ -43,12 +43,13 @@ const TemperatureList = () => {
 			{showTemperatures ? (
 				<div>
 					<DateRangeForm date={date} setDate={setDate} refresh={refresh} setRefresh={setRefresh}/>
+					<TemperatureGraph temperatureData={temperatureData}/>
 					<ul>
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {
 									return (
 										<li key={temperatureObj.id}>
-											Date: {temperatureObj.date} Time: {temperatureObj.time}{' '}
+											Date: {temperatureObj.date} Time: {temperatureObj.time.slice(0,5)}{' '}
 											Temp F: {temperatureObj.temperature.toFixed(2)}
 										</li>
 									);
@@ -57,7 +58,6 @@ const TemperatureList = () => {
 					</ul>
 				</div>
 			) : null}
-			<TemperatureGraph temperatureData={temperatureData}/>
 		</div>
 	);
 };
