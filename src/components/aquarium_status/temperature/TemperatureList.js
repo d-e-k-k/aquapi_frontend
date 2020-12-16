@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DateRangeForm from './DateRangeForm';
-import moment from 'moment'
+import moment from 'moment';
 import TemperatureGraph from './TemperatureGraph';
 
 const m = moment();
-let current_formatted_date = `${m.date()}-${m.month()+1}-${m.year()}`;
+let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
 
 const TemperatureList = () => {
 	const [temperatureData, setTemperatureData] = useState();
@@ -15,36 +15,54 @@ const TemperatureList = () => {
 		end: current_formatted_date,
 	});
 	const [refresh, setRefresh] = useState(false);
-	
 
 	const url = 'https://mighty-lake-45709.herokuapp.com/temperatures/range/';
 	// const url = 'http://localhost:8000/temperatures/range/';
 	// const url = './temp_seeds.json';
 	useEffect(() => {
-		axios.get(url, {params: {start: date.start,
-		end: date.end  }})
-		.then(res => {
-			setTemperatureData(res.data)
-	
-			
-		})
-		.catch(console.error)
+		axios
+			.get(url, { params: { start: date.start, end: date.end } })
+			.then((res) => {
+				setTemperatureData(res.data);
+			})
+			.catch(console.error);
 	}, [refresh]);
 
 	function toggleShowTemperatures() {
 		showTemperatures ? setShowTemperatures(false) : setShowTemperatures(true);
 	}
 
-
-
 	return (
 		<div>
 			<h3 onClick={toggleShowTemperatures}>Temperatures</h3>
 			{showTemperatures ? (
 				<div>
-					<DateRangeForm date={date} setDate={setDate} refresh={refresh} setRefresh={setRefresh}/>
-					<TemperatureGraph temperatureData={temperatureData}/>
-					<ul>
+					<DateRangeForm
+						date={date}
+						setDate={setDate}
+						refresh={refresh}
+						setRefresh={setRefresh}
+					/>
+					<TemperatureGraph temperatureData={temperatureData} />
+					<table>
+						<tr>
+							<th>Date</th>
+							<th>Time</th>
+							<th>Temperature</th>
+						</tr>
+						{temperatureData
+							? temperatureData.map((data) => {
+									return (
+										<tr key={data.key}>
+											<td>{data.date}</td>
+											<td>{data.time}</td>
+											<td>{data.temperature}</td>
+										</tr>
+									);
+							  })
+							: null}
+					</table>
+					{/* <ul>
 						{temperatureData
 							? temperatureData.map((temperatureObj) => {
 									return (
@@ -55,7 +73,7 @@ const TemperatureList = () => {
 									);
 							  })
 							: null}
-					</ul>
+					</ul> */}
 				</div>
 			) : null}
 		</div>
