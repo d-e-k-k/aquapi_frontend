@@ -140,18 +140,50 @@ img.avatar {
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
-	width: 15%;
+	/* width: 15%; */
 	border: 2px solid black;
 	border-radius: 5px;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  width: 15.5%;
+  /* width: 15.5%; */
 }
 
-.table-graph-container{
+.status-container{
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 3fr 1fr 6fr;
+}
+
+.basic-info{
+	grid-column: 1 / span 1;
+	grid-row: 1 / span 1;
+}
+
+.equipment{
+	grid-column: 2 / span 1;
+	grid-row: 1 / span 1;
+}
+.fish{
+	grid-column: 3 / span 1;
+	grid-row: 1 / span 1;
+}
+
+.water{
+	grid-column: 4 / span 1;
+	grid-row: 1 / span 1;
+}
+
+.date{
+	grid-column: 1 / span 4;
+	grid-row: 2 / span 1;
+}
+.graph-con {
+	grid-column: 1 / span 2;
+	grid-row: 3 / span 1;
+}
+.table-con {
+	grid-column: 3 / span 2;
+	grid-row: 3 / span 1;
 }

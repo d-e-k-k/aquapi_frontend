@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import BasicInfo from './basic_info/BasicInfo';
 import EquipmentInfo from './equipment_info/EquipmentInfo';
 import FishInfo from './fish_info/FishInfo';
-import TemperatureList from './temperature/TemperatureList';
 import WaterChange from './water_change/WaterChange';
 import TemperatureTable from './temperature/TemperatureTable'
 import TemperatureGraph from './temperature/TemperatureGraph'
@@ -13,27 +12,27 @@ const AquariumStatus = () => {
 	const [temperatureData, setTemperatureData] = useState();
 	return (
 		<div>
-			<h2>D-e-k-k's Tank</h2>
-			<div class='quick-stats-con'>
-				<div class='card'>
+			{/* <h2>D-e-k-k's Tank</h2> */}
+			<div class='status-container'>
+				<div class='card basic-info'>
 					<BasicInfo />
 				</div>
-				<div class='card'>
+				<div class='card equipment'>
 					<EquipmentInfo />
 				</div>
-				<div class='card'>
+				<div class='card fish'>
 					<FishInfo />
 				</div>
-				<div class='card'>
+				<div class='card water'>
 					<WaterChange />
 				</div>
-				<div>
+				<div class="date">
 					<DateRangeForm setTemperatureData={setTemperatureData} />
 				</div>
-				<div>
+				<div class="graph-con">
 					<TemperatureGraph temperatureData={temperatureData} />
 				</div>
-				<div>
+				<div class="table-con">
 					<TemperatureTable temperatureData={temperatureData} />
 				</div>
 			</div>
