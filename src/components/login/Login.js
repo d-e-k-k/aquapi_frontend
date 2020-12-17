@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 	const initialFormState = {
 		email: '',
 		password: '',
@@ -12,36 +12,42 @@ const Login = () => {
 		setFormState({ ...formState, [event.target.id]: event.target.value });
 	}
 
+	function closeLoginModal() {
+		setDisplayLogin(false)
+	}
+
 	function handleSubmit(event) {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-            url: 'https://mighty-lake-45709.herokuapp.com/token/login/',
-            data: {
-                email: formState.email,
-                password: formState.password
-            }
-        })
-        .then(res => {
-            localStorage.setItem('token', res.data.auth_token);
-            console.log(res.data.auth_token);
-        })
-        .catch(console.error)
+			url: 'https://mighty-lake-45709.herokuapp.com/token/login/',
+			data: {
+				email: formState.email,
+				password: formState.password,
+			},
+		})
+			.then((res) => {
+				localStorage.setItem('token', res.data.auth_token);
+				setAuthenticated(true);
+			})
+			.catch(console.error);
 	}
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<label>
-					Email:
-					<input id='email' type='email' onChange={handleChange} />
-				</label>
-				<label>
-					Password:
-					<input id='password' type='text' onChange={handleChange} />
-				</label>
-				<input type='submit' />
-			</form>
+		<div id='modal-login' onClick={closeLoginModal}>
+			<div id='modal-login-textbox'>
+				<form onSubmit={handleSubmit}>
+					<label>
+						Email:
+						<input id='email' type='email' onChange={handleChange} />
+					</label>
+					<label>
+						Password:
+						<input id='password' type='password' onChange={handleChange} />
+					</label>
+					<input type='submit' />
+				</form>
+			</div>
 		</div>
 	);
 };

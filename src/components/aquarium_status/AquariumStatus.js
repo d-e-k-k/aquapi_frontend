@@ -13,13 +13,13 @@ const AquariumStatus = () => {
 	return (
 		<div>
 			<h2>D-e-k-k's Tank</h2>
-			<div>
+			<div class='quick-stats-con'>
 				<BasicInfo />
 				<EquipmentInfo />
-                <FishInfo />
+				<FishInfo />
 				<WaterChange />
-                <TemperatureList />
 			</div>
+			<TemperatureList />
 		</div>
 	);
 };

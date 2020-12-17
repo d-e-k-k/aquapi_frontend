@@ -10,7 +10,7 @@ let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
 
 const TemperatureList = () => {
 	const [temperatureData, setTemperatureData] = useState();
-	const [showTemperatures, setShowTemperatures] = useState(false);
+	const [showTemperatures, setShowTemperatures] = useState(true);
 	const [date, setDate] = useState({
 		start: current_formatted_date,
 		end: current_formatted_date,
@@ -47,26 +47,6 @@ const TemperatureList = () => {
 					<div class='graph-table-con'>
 						<TemperatureGraph temperatureData={temperatureData} class='graph' />
 						<TemperatureTable temperatureData={temperatureData}/>
-						{/* <div class='table'>
-							<table id='customers'>
-								<tr>
-									<th>Date</th>
-									<th>Time</th>
-									<th>Temperature</th>
-								</tr>
-								{temperatureData
-									? temperatureData.map((data) => {
-											return (
-												<tr key={data.id}>
-													<td>{data.date}</td>
-													<td>{data.time}</td>
-													<td>{data.temperature}</td>
-												</tr>
-											);
-									  })
-									: null}
-							</table>
-						</div> */}
 					</div>
 				</div>
 			) : null}
@@ -75,39 +55,3 @@ const TemperatureList = () => {
 };
 
 export default TemperatureList;
-
-// <div>
-// 	{/* <h3 onClick={toggleShowTemperatures}>Temperatures</h3>
-// 	{showTemperatures ?  */}
-// 	{/* // 	<div> */}
-
-//  		{/* <DateRangeForm
-// 	// 			date={date}
-// 	// 			setDate={setDate}
-// 	// 			refresh={refresh}
-// 	// 			setRefresh={setRefresh}
-// 	// 		/> */}
-// 	// 		<div class='graph-table-con'>
-
-// 	// 			<TemperatureGraph temperatureData={temperatureData}/>
-// 	// 			<table id='customers' class='table'>
-// 	// 				<tr>
-// 	// 					<th>Date</th>
-// 	// 					<th>Time</th>
-// 	// 					<th>Temperature</th>
-// 	// 				</tr>
-// 	// 				{temperatureData
-// 	// 					? temperatureData.map((data) => {
-// 	// 							return (
-// 	// 								<tr key={data.key}>
-// 	// 									<td>{data.date}</td>
-// 	// 									<td>{data.time}</td>
-// 	// 									<td>{data.temperature}</td>
-// 	// 								</tr>
-// 	// 							);
-// 	// 					  })
-// 	// 					: null}
-// 	// 			</table>
-// 	// 		</div>
-// 	// </div>
-// </div>
