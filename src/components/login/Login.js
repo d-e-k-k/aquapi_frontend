@@ -12,8 +12,10 @@ const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 		setFormState({ ...formState, [event.target.id]: event.target.value });
 	}
 
-	function closeLoginModal() {
-		setDisplayLogin(false)
+	function closeLoginModal(event) {
+		if(event.target.id === "modal-login"){
+			setDisplayLogin(false)
+		}
 	}
 
 	function handleSubmit(event) {
@@ -39,11 +41,11 @@ const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 				<form onSubmit={handleSubmit}>
 					<label>
 						Email:
-						<input id='email' type='email' onChange={handleChange} />
+						<input id='email' class='input-login' type='email' onChange={handleChange} />
 					</label>
 					<label>
 						Password:
-						<input id='password' type='password' onChange={handleChange} />
+						<input id='password' class='input-login' type='password' onChange={handleChange} />
 					</label>
 					<input type='submit' />
 				</form>

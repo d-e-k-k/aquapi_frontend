@@ -52,30 +52,37 @@ table {
 	height: 100%;
 }
 
-.quick-stats-con{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 200px;
+.quick-stats-con {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 200px;
 }
-
+/* Login Modal */
 #modal-login {
-	background-color: rgba(0,0,0,0.4);
+	background-color: rgba(0, 0, 0, 0.4);
 	position: fixed;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
 	z-index: 1;
-	/*This puts our modal in front of the body (which has a default z-index setting of `0`*/
 	overflow: auto;
-	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
 }
 
 #modal-login-textbox {
 	background-color: white;
 	height: 350px;
 	width: 550px;
-  border-radius: 2px;
-  margin: 150px auto;
+	border-radius: 2px;
+	margin: 150px auto;
+}
+
+.input-login {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
 }
