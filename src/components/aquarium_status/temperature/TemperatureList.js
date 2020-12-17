@@ -46,7 +46,7 @@ const TemperatureList = () => {
 					/>
 					<div class='graph-table-con'>
 						<TemperatureGraph temperatureData={temperatureData} class='graph' />
-						<TemperatureTable temperatureData={temperatureData}/>
+						<TemperatureTable temperatureData={temperatureData} class='table'/>
 					</div>
 				</div>
 			) : null}

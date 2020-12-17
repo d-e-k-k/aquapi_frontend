@@ -13,8 +13,8 @@ const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 	}
 
 	function closeLoginModal(event) {
-		if(event.target.id === "modal-login"){
-			setDisplayLogin(false)
+		if (event.target.id === 'modal-login' || event.target.className == 'cancel-btn') {
+			setDisplayLogin(false);
 		}
 	}
 
@@ -31,6 +31,7 @@ const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 			.then((res) => {
 				localStorage.setItem('token', res.data.auth_token);
 				setAuthenticated(true);
+				setDisplayLogin(false);
 			})
 			.catch(console.error);
 	}
@@ -39,15 +40,31 @@ const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 		<div id='modal-login' onClick={closeLoginModal}>
 			<div id='modal-login-textbox'>
 				<form onSubmit={handleSubmit}>
+					<div class='imgcontainer'>
+						<img src='./anemone-1050x700.png' alt='logo' class='avatar' />
+					</div>
 					<label>
-						Email:
-						<input id='email' class='input-login' type='email' onChange={handleChange} />
+						<b>Email:</b>
+						<input
+							id='email'
+							class='input-login'
+							type='email'
+							onChange={handleChange}
+						/>
 					</label>
 					<label>
-						Password:
-						<input id='password' class='input-login' type='password' onChange={handleChange} />
+						<b>Password:</b>
+						<input
+							id='password'
+							class='input-login'
+							type='password'
+							onChange={handleChange}
+						/>
 					</label>
-					<input type='submit' />
+					<button type='submit' class='login-button'>
+						Login
+					</button>
+					<button class='cancel-btn'>Cancel</button>
 				</form>
 			</div>
 		</div>
