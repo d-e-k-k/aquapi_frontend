@@ -3,10 +3,14 @@ import BasicInfo from './basic_info/BasicInfo';
 import EquipmentInfo from './equipment_info/EquipmentInfo';
 import FishInfo from './fish_info/FishInfo';
 import TemperatureList from './temperature/TemperatureList';
-import axios from 'axios';
 import WaterChange from './water_change/WaterChange';
+import TemperatureTable from './temperature/TemperatureTable'
+import TemperatureGraph from './temperature/TemperatureGraph'
+import DateRangeForm from './temperature/DateRangeForm'
+
 
 const AquariumStatus = () => {
+	const [temperatureData, setTemperatureData] = useState();
 	return (
 		<div>
 			<h2>D-e-k-k's Tank</h2>
@@ -23,8 +27,16 @@ const AquariumStatus = () => {
 				<div class='card'>
 					<WaterChange />
 				</div>
+				<div>
+					<DateRangeForm setTemperatureData={setTemperatureData} />
+				</div>
+				<div>
+					<TemperatureGraph temperatureData={temperatureData} />
+				</div>
+				<div>
+					<TemperatureTable temperatureData={temperatureData} />
+				</div>
 			</div>
-			<TemperatureList />
 		</div>
 	);
 };
