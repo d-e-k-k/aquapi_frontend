@@ -14,25 +14,25 @@ const AquariumStatus = () => {
 		<div>
 			{/* <h2>D-e-k-k's Tank</h2> */}
 			<div class='status-container'>
-				<div class='card basic-info'>
+				<div class='card basic-info cgi'>
 					<BasicInfo />
 				</div>
-				<div class='card equipment'>
+				<div class='card equipment cgi'>
 					<EquipmentInfo />
 				</div>
-				<div class='card fish'>
+				<div class='card fish cgi'>
 					<FishInfo />
 				</div>
-				<div class='card water'>
+				<div class='card water cgi'>
 					<WaterChange />
 				</div>
-				<div class="date">
+				<div class="card date cgi">
 					<DateRangeForm setTemperatureData={setTemperatureData} />
 				</div>
-				<div class="graph-con">
+				<div class="card graph-con cgi">
 					<TemperatureGraph temperatureData={temperatureData} />
 				</div>
-				<div class="table-con">
+				<div class="card table-con cgi">
 					<TemperatureTable temperatureData={temperatureData} />
 				</div>
 			</div>

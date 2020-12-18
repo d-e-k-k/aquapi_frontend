@@ -1,6 +1,7 @@
-body{
-	background-color: rgba(0,0,0,0.05);
+* {
+	box-sizing: border-box;
 }
+
 .temp_container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -14,9 +15,6 @@ th {
 
 table {
 	border-collapse: collapse;
-	/* width: 320;
-    height: 100;
-    overflow: auto; */
 	table-layout: fixed;
 	width: 100%;
 }
@@ -28,16 +26,6 @@ table {
 	background-color: #4caf50;
 	color: white;
 }
-/* 
-.graph-table-con {
-	display: grid;
-	grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1000px;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 400px 20;
-	column-gap: 20px;
-	row-gap: 20px;
-} */
 
 .graph {
 	grid-column: 1 / span 1;
@@ -58,15 +46,6 @@ tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 
-/* .quick-stats-con {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	/* display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 200px; */
-/* } */
 /* Login Modal Attribution: https://www.geeksforgeeks.org/html-responsive-modal-login-form/ & General Assembly */
 #modal-login {
 	background-color: rgba(0, 0, 0, 0.4);
@@ -140,50 +119,199 @@ img.avatar {
 .card {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	transition: 0.3s;
-	/* width: 15%; */
+	width: 98%;
+	height: 98%;
 	border: 2px solid black;
 	border-radius: 5px;
+	padding: 15px;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  /* width: 15.5%; */
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+	width: 99%;
+	height: 99%;
 }
 
-.status-container{
+.cgi {
+	justify-self: center;
+	align-self: center;
+}
+
+.status-container {
+	padding: 10px;
 	display: grid;
+	width: 100%;
+	height: 100%;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: 3fr 1fr 6fr;
+	grid-template-rows: 1.5fr 1.5fr 3fr 3fr;
+	column-gap: 2vw;
+	row-gap: 2vw;
+	background-color: lightgray;
 }
 
-.basic-info{
+.status-container > div {
+	background-color: white;
+}
+
+.basic-info {
 	grid-column: 1 / span 1;
-	grid-row: 1 / span 1;
+	grid-row: 1 / span 2;
 }
 
-.equipment{
+.equipment {
 	grid-column: 2 / span 1;
-	grid-row: 1 / span 1;
+	grid-row: 1 / span 2;
 }
-.fish{
-	grid-column: 3 / span 1;
-	grid-row: 1 / span 1;
-}
-
-.water{
+.fish {
 	grid-column: 4 / span 1;
-	grid-row: 1 / span 1;
+	grid-row: 1 / span 3;
 }
 
-.date{
-	grid-column: 1 / span 4;
-	grid-row: 2 / span 1;
+.water {
+	grid-column: 4 / span 1;
+	grid-row: 4 / span 1;
+}
+
+.date {
+	width: 99%;
+	height: 98%;
+	grid-column: 3 / span 1;
+	grid-row: 1 / span 2;
 }
 .graph-con {
 	grid-column: 1 / span 2;
-	grid-row: 3 / span 1;
+	grid-row: 3 / span 2;
 }
 .table-con {
-	grid-column: 3 / span 2;
-	grid-row: 3 / span 1;
+	grid-column: 3 / span 1;
+	grid-row: 3 / span 2;
+}
+
+/* Home */
+
+.home-background {
+	background-image: url('./components/home/falseclowns.jpg');
+
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	display: grid;
+	grid-template-columns: 1fr 80vw 1fr;
+	grid-template-rows: 1fr;
+}
+
+div.home-text > h2 {
+	font-size: calc(6vw + 20px);
+}
+div.home-text > h3,
+h4 {
+	font-size: calc(2vw + 15px);
+}
+div.home-text > p {
+	font-size: calc(1vw + 12px);
+}
+
+div.home-text > ul > li {
+	font-size: calc(1vw + 12px);
+}
+
+.home-text {
+	margin: 25px;
+	padding: 50px;
+	grid-column: 2 / span 1;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	font-weight: bold;
+}
+
+ul {
+	list-style: none;
+}
+
+@media only screen and (max-width: 1200px) {
+	.status-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 2fr 2fr;
+	}
+
+	.basic-info {
+		grid-column: 1 / span 1;
+		grid-row: 1 / span 1;
+	}
+
+	.equipment {
+		grid-column: 2 / span 1;
+		grid-row: 1 / span 1;
+	}
+	.fish {
+		grid-column: 3 / span 1;
+		grid-row: 1 / span 1;
+	}
+
+	.water {
+		grid-column: 4 / span 1;
+		grid-row: 1 / span 1;
+	}
+
+	.date {
+		grid-column: 1 / span 4;
+		grid-row: 2 / span 1;
+	}
+	.graph-con {
+		grid-column: 1 / span 4;
+		grid-row: 3 / span 1;
+	}
+	.table-con {
+		grid-column: 1 / span 4;
+		grid-row: 4 / span 1;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.status-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	}
+
+	.basic-info {
+		grid-column: 1 / span 1;
+		grid-row: 1 / span 1;
+	}
+
+	.equipment {
+		grid-column: 2 / span 1;
+		grid-row: 1 / span 1;
+	}
+	.fish {
+		grid-column: 1 / span 1;
+		grid-row: 2 / span 1;
+	}
+
+	.water {
+		grid-column: 2 / span 1;
+		grid-row: 2 / span 1;
+	}
+
+	.date {
+		grid-column: 1 / span 2;
+		grid-row: 3 / span 1;
+	}
+	.graph-con {
+		grid-column: 1 / span 2;
+		grid-row: 4 / span 1;
+	}
+	.table-con {
+		grid-column: 1 / span 2;
+		grid-row: 5 / span 1;
+	}
 }

@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import NavBar from './components/navbar/NavBar';
 import Login from './components/login/Login';
 import AquariumStatus from './components/aquarium_status/AquariumStatus';
+import Home from './components/home/home'
 import './App.css';
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
 	const [displayLogin, setDisplayLogin] = useState(false);
+	const [displayDash, setDisplayDash] = useState(false);
+	const [displayHome, setDisplayHome] = useState(true)
 
 	return (
 		<div className='App'>
@@ -15,6 +18,10 @@ function App() {
 				setAuthenticated={setAuthenticated}
 				displayLogin={displayLogin}
 				setDisplayLogin={setDisplayLogin}
+				displayDash={displayDash}
+				setDisplayDash={setDisplayDash}
+				displayHome={setDisplayHome}
+				setDisplayHome={setDisplayHome}
 			/>
 			{displayLogin ? (
 				<Login
@@ -23,8 +30,10 @@ function App() {
 					setDisplayLogin={setDisplayLogin}
 				/>
 			) : null}
-
-			<AquariumStatus />
+			<main>
+				{displayDash? <AquariumStatus /> : <Home />}
+				
+			</main>
 		</div>
 	);
 }
