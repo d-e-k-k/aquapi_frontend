@@ -7,8 +7,11 @@ AquaPi is an automated aquarium controller that can monitor and manage a variety
 - https://github.com/d-e-k-k/aquapi_frontend 
 - https://github.com/d-e-k-k/aquapi_aquarium_controller
 
-## Original Wireframe
-![](planning/images/wire_frame.png) 
+## Original Wire-Frame
+![image](https://user-images.githubusercontent.com/71715721/102579049-ae314200-40c9-11eb-818a-b5e5bb377ea6.png)
+
+## Screen Shots
+![](/public/screen-shot.png) 
 
 ## User stories
 
