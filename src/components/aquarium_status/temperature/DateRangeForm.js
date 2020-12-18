@@ -41,6 +41,7 @@ const DateRangeForm = ({ setTemperatureData }) => {
 					required
 					onChange={handleDateChange}
 					class='input-login'
+					placeholder='DD-MM-YYYY'
 				/>
 			</label>
 			<label>
@@ -52,6 +53,7 @@ const DateRangeForm = ({ setTemperatureData }) => {
 					required
 					onChange={handleDateChange}
 					class='input-login'
+					placeholder='DD-MM-YYYY'
 				/>
 			</label>
 			<button type='submit' class='login-button'>

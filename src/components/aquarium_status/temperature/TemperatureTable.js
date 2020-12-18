@@ -10,7 +10,7 @@ const TemperatureTable = ({ temperatureData }) => {
 						<tr>
 							<th>Date</th>
 							<th>Time</th>
-							<th>Temperature</th>
+							<th>Temperature (F)</th>
 						</tr>
 					</table>
 				</div>
