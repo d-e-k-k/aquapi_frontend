@@ -26,3 +26,21 @@ AquaPi is an automated aquarium controller that can monitor and manage a variety
 - As a user, I would like to have an automatic aquarium feeder so my fish can be feed when I am not home
 - As a user I would like to know if my automatic feeding feature is activated and turn it on and off so it only feeds the fish when I’m not home .
 - As a user, I would like to be able to monitor water flow so I can make sure the pumps are running and could use this as indicator for leaks or pumps needing to be cleaned.
+
+## Instillation Steps
+- Fork and Clone down the repo
+- Cd into the repo directory
+- Run npm install to install any project dependencies 
+
+## Some Wanted/Needed Additions 
+- Better formatting for the temperature graph axis 
+- Calendar Widget for date range selector
+- Refactoring date format to follow MM/DD/YYYY instead of DD-MM-YYY
+- And much more!
+
+## How to Contribute 
+All contributions are appreciated!
+1. Push your most recent development branch up to Github
+2. Create a pull request against the branch of interest or our Dev branch.
+3. Be descriptive in you pull message!
+4. Await merge or revision request!
