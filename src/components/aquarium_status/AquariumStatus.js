@@ -3,16 +3,14 @@ import BasicInfo from './basic_info/BasicInfo';
 import EquipmentInfo from './equipment_info/EquipmentInfo';
 import FishInfo from './fish_info/FishInfo';
 import WaterChange from './water_change/WaterChange';
-import TemperatureTable from './temperature/TemperatureTable'
-import TemperatureGraph from './temperature/TemperatureGraph'
-import DateRangeForm from './temperature/DateRangeForm'
-
+import TemperatureTable from './temperature/TemperatureTable';
+import TemperatureGraph from './temperature/TemperatureGraph';
+import DateRangeForm from './temperature/DateRangeForm';
 
 const AquariumStatus = () => {
 	const [temperatureData, setTemperatureData] = useState();
 	return (
 		<div>
-			{/* <h2>D-e-k-k's Tank</h2> */}
 			<div class='status-container'>
 				<div class='card basic-info cgi'>
 					<BasicInfo />
@@ -26,13 +24,13 @@ const AquariumStatus = () => {
 				<div class='card water cgi'>
 					<WaterChange />
 				</div>
-				<div class="card date cgi">
+				<div class='card date cgi'>
 					<DateRangeForm setTemperatureData={setTemperatureData} />
 				</div>
-				<div class="card graph-con cgi">
+				<div class='card graph-con cgi'>
 					<TemperatureGraph temperatureData={temperatureData} />
 				</div>
-				<div class="card table-con cgi">
+				<div class='card table-con cgi'>
 					<TemperatureTable temperatureData={temperatureData} />
 				</div>
 			</div>

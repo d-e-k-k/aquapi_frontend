@@ -1,5 +1,12 @@
 import React from 'react';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import {
+	LineChart,
+	Line,
+	CartesianGrid,
+	XAxis,
+	YAxis,
+	ResponsiveContainer,
+} from 'recharts';
 
 const TemperatureGraph = ({ temperatureData }) => {
 	const data = temperatureData;

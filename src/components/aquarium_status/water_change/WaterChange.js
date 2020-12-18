@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
 const WaterChange = () => {
 	const [waterChangeData, setWaterChangeDate] = useState();
 	const url = 'https://mighty-lake-45709.herokuapp.com/water-change/';
-
-
-	
 
 	useEffect(() => {
 		axios
@@ -17,7 +13,6 @@ const WaterChange = () => {
 			})
 			.catch(console.error);
 	}, []);
-
 
 	return (
 		<div>

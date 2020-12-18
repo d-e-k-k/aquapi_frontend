@@ -13,7 +13,10 @@ const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 	}
 
 	function closeLoginModal(event) {
-		if (event.target.id === 'modal-login' || event.target.className == 'cancel-btn') {
+		if (
+			event.target.id === 'modal-login' ||
+			event.target.className == 'cancel-btn'
+		) {
 			setDisplayLogin(false);
 		}
 	}
