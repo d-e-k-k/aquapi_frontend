@@ -1,9 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import moment from 'moment';
+import axios from 'axios';
 
-const DateRangeForm = ({ date, setDate, refresh, setRefresh }) => {
+const m = moment();
+let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
+
+const DateRangeForm = ({ setTemperatureData }) => {
+	const [date, setDate] = useState({
+		start: current_formatted_date,
+		end: current_formatted_date,
+	});
+	const [refresh, setRefresh] = useState(false);
 	function handleDateChange(event) {
 		setDate({ ...date, [event.target.id]: event.target.value });
 	}
+
+	const url = 'https://mighty-lake-45709.herokuapp.com/temperatures/range/';
+	useEffect(() => {
+		axios
+			.get(url, { params: { start: date.start, end: date.end } })
+			.then((res) => {
+				setTemperatureData(res.data);
+			})
+			.catch(console.error);
+	}, [refresh]);
+
 	function handleDateRangeSubmint(event) {
 		event.preventDefault();
 		refresh ? setRefresh(false) : setRefresh(true);
@@ -19,6 +40,7 @@ const DateRangeForm = ({ date, setDate, refresh, setRefresh }) => {
 					defaultValue={date.start}
 					required
 					onChange={handleDateChange}
+					class='input-login'
 				/>
 			</label>
 			<label>
@@ -29,9 +51,12 @@ const DateRangeForm = ({ date, setDate, refresh, setRefresh }) => {
 					defaultValue={date.end}
 					required
 					onChange={handleDateChange}
+					class='input-login'
 				/>
 			</label>
-			<input type='submit' />
+			<button type='submit' class='login-button'>
+				Submit
+			</button>
 		</form>
 	);
 };

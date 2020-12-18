@@ -3,7 +3,7 @@ import { ResponsiveContainer } from 'recharts';
 
 const TemperatureTable = ({ temperatureData }) => {
 	return (
-		<ResponsiveContainer >
+		<ResponsiveContainer>
 			<div class='table'>
 				<div>
 					<table id='customers'>
@@ -25,12 +25,11 @@ const TemperatureTable = ({ temperatureData }) => {
 											<td>{data.temperature.toFixed(2)}</td>
 										</tr>
 									);
-							})
+							  })
 							: null}
 					</table>
 				</div>
 			</div>
-
 		</ResponsiveContainer>
 	);
 };
