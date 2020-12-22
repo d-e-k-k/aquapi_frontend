@@ -6,6 +6,7 @@ import {
 	XAxis,
 	YAxis,
 	ResponsiveContainer,
+	Tooltip,
 } from 'recharts';
 
 const TemperatureGraph = ({ temperatureData }) => {
@@ -14,7 +15,6 @@ const TemperatureGraph = ({ temperatureData }) => {
 	return (
 		<ResponsiveContainer width='99%' aspect={4.0 / 2.0}>
 			<LineChart data={data}>
-				<Line type='monotone' dataKey='temperature' stroke='red' />
 				<CartesianGrid stroke='#ccc' />
 				<XAxis dataKey='time' />
 				<YAxis />
@@ -24,6 +24,7 @@ const TemperatureGraph = ({ temperatureData }) => {
 					stroke='#8884d8'
 					strokeWidth={4}
 				/>
+				<Tooltip />
 			</LineChart>
 		</ResponsiveContainer>
 	);
