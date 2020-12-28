@@ -8,7 +8,8 @@ import TemperatureGraph from './temperature/TemperatureGraph';
 import DateRangeForm from './temperature/DateRangeForm';
 
 const AquariumStatus = () => {
-	const [temperatureData, setTemperatureData] = useState();
+	const [temperatureData, setTemperatureData] = useState([]);
+	const [radioBtn, setRadioBtn] = useState('hourly');
 	return (
 		<div>
 			<div class='status-container'>
@@ -25,13 +26,13 @@ const AquariumStatus = () => {
 					<WaterChange />
 				</div>
 				<div class='card date cgi'>
-					<DateRangeForm setTemperatureData={setTemperatureData} />
+					<DateRangeForm setTemperatureData={setTemperatureData} radioBtn={radioBtn} setRadioBtn={setRadioBtn}/>
 				</div>
 				<div class='card graph-con cgi'>
-					<TemperatureGraph temperatureData={temperatureData} />
+					<TemperatureGraph temperatureData={temperatureData} radioBtn={radioBtn}/>
 				</div>
 				<div class='card table-con cgi'>
-					<TemperatureTable temperatureData={temperatureData} />
+					<TemperatureTable temperatureData={temperatureData} radioBtn={radioBtn}/>
 				</div>
 			</div>
 		</div>
