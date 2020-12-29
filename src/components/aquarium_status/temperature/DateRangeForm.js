@@ -6,7 +6,7 @@ import { Label } from 'recharts';
 const m = moment();
 let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
 
-const DateRangeForm = ({ setTemperatureData, setRadioBtn }) => {
+const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 	const [date, setDate] = useState({
 		start: current_formatted_date,
 		end: current_formatted_date,
@@ -15,8 +15,8 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn }) => {
 	
 
 	function handleRadioSelect(event){
-		console.log(event);
-		setRadioBtn(event.target.id)
+		console.log(event.target.dataset.url);
+		setRadioBtn(event.target.dataset.url)
 	}
 
 	function handleDateChange(event) {
@@ -26,9 +26,10 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn }) => {
 	const url = 'http://localhost:8000/temperatures/range/';
 	
 	
+	
 	useEffect(() => {
 		axios
-			.get(url, { params: { start: date.start, end: date.end } })
+			.get(radioBtn, { params: { start: date.start, end: date.end } })
 			.then((res) => {
 				console.log(res.data);
 				setTemperatureData(res.data);
@@ -75,17 +76,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn }) => {
 					value='hourly'
 					name='view'
 					onClick={handleRadioSelect}
-					data-url='http://localhost:8000/temperatures/range'
-				/>
-			</label>
-			<label>
-				Bidaily
-				<input
-					type='radio'
-					id='bidaily'
-					value='bidaily'
-					name='view'
-					onClick={handleRadioSelect}
+					data-url='http://localhost:8000/temperatures/range/'
 				/>
 			</label>
 			<label>
@@ -96,7 +87,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn }) => {
 					value='daily'
 					name='view'
 					onClick={handleRadioSelect}
-					data-url='http://localhost:8000/temperatures/interval'
+					data-url='http://localhost:8000/temperatures/interval/'
 				/>
 			</label>
 			<button type='submit' class='login-button'>

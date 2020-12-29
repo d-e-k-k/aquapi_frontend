@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer } from 'recharts';
 
-const TemperatureTable = ({ temperatureData }) => {
-	const [keys, setKeys] = useState();
-
-	temperatureData ? console.log(temperatureData[0]) : console.log('loading');
+const TemperatureTable = ({ temperatureData, keys, setKeys }) => {
+	
 
 	useEffect(() => {
 		if (temperatureData && temperatureData.length > 0) {
@@ -16,55 +14,45 @@ const TemperatureTable = ({ temperatureData }) => {
 			setKeys(allKeys);
 		}
 	}, [temperatureData]);
+	if (temperatureData && temperatureData.length > 0 && keys && keys.length > 0){
 
-	return (
-		<ResponsiveContainer>
-			<div class='table'>
-				<div>
-					<table id='customers'>
-						<tr>{keys ? keys.map((key) => <th>{key}</th>) : null}</tr>
-					</table>
-				</div>
-				<div class='table-body'>
-					<table>
-						{/* <tr> */}
+		return (
+			<ResponsiveContainer>
+				<div class='table'>
+					<div>
+						<table id='customers'>
+							<tr>{keys ? keys.map((key) => <th>{key}</th>) : null}</tr>
+						</table>
+					</div>
+					<div class='table-body'>
+						<table>
 							{temperatureData && temperatureData.length > 0
 								? temperatureData.map((data, i) => {
-									return (
-										<tr>
-											{keys && keys.length > 0 
-												? keys.map(key=>{
-													return <td>{data[key]}</td>
-												})
-												:null
-											}
-											{/* {Object.keys(data).map((key, i)=>{
-												return <td>{data[key]}</td>
-											})} */}
-											{/* {data.map(key=> {
-												return <td>{key}</td>
-											})} */}
-											{/* {keys && keys.length > 0
-												? keys.map((key) => {
-														return <td>{temperatureData[i].key}</td>;
-												  })
-												: null} */}
-										</tr>
-									);
-								})
-								: null 
-							}
-							{/* {keys && keys.length > 0
-								? keys.map((key) => {
-										return <td>{key}</td>;
+										return (
+											<tr>
+												{keys && keys.length > 0
+													? keys.map((key) => {
+															return <td>{data[key]}</td>;
+													  })
+													: null}
+											</tr>
+										);
 								  })
-								: null} */}
-						{/* </tr> */}
-					</table>
+								: null}
+						</table>
+					</div>
 				</div>
+			</ResponsiveContainer>
+		);
+	}else{
+		return (
+			<div>
+				<h3>Table: No Data</h3>
+				<p>The date range you selected had no data.</p>
+				<p>Please try another date range</p>
 			</div>
-		</ResponsiveContainer>
-	);
+		);
+	}
 };
 
 export default TemperatureTable;
