@@ -10,7 +10,7 @@ import DateRangeForm from './temperature/DateRangeForm';
 const AquariumStatus = () => {
 	const [temperatureData, setTemperatureData] = useState([]);
 	const [keys, setKeys] = useState();
-	const [radioBtn, setRadioBtn] = useState('http://localhost:8000/temperatures/range/');
+	const [radioBtn, setRadioBtn] = useState('temperatures/range/');
 	return (
 		<div>
 			<div class='status-container'>

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from 'axios';
 import { Label } from 'recharts';
+import { apiUrl } from '../../../config';
 
+console.log(apiUrl)
 const m = moment();
 let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
 
@@ -23,13 +25,14 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 		setDate({ ...date, [event.target.id]: event.target.value });
 	}
 
-	const url = 'http://localhost:8000/temperatures/range/';
 	
 	
 	
 	useEffect(() => {
 		axios
-			.get(radioBtn, { params: { start: date.start, end: date.end } })
+			.get(`${apiUrl}${radioBtn}`, {
+				params: { start: date.start, end: date.end },
+			})
 			.then((res) => {
 				console.log(res.data);
 				setTemperatureData(res.data);
@@ -76,7 +79,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 					value='hourly'
 					name='view'
 					onClick={handleRadioSelect}
-					data-url='http://localhost:8000/temperatures/range/'
+					data-url='temperatures/range/'
 				/>
 			</label>
 			<label>
@@ -87,7 +90,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 					value='daily'
 					name='view'
 					onClick={handleRadioSelect}
-					data-url='http://localhost:8000/temperatures/interval/'
+					data-url='temperatures/interval/'
 				/>
 			</label>
 			<button type='submit' class='login-button'>
