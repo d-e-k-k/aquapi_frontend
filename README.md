@@ -2,7 +2,11 @@
 
 
 ## Description
-AquaPi is an automated aquarium controller that can monitor and manage a variety of aquarium components. Built with a RaspberryPi single board computer and some sensors, the AquaPi framework is extremely customizable and affordable. Excited….? Checkout the frontend repo or the controller repo here! 
+AquaPi is an automated aquarium controller that can monitor and manage a variety of aquarium components. Built with a RaspberryPi single board computer and some sensors, the AquaPi framework is extremely customizable and affordable. Excited….? Checkout the backend repo or the controller repo as well as the deployed site here! 
+#### Deployed
+https://aquapi.herokuapp.com/
+
+#### Github
 - https://github.com/d-e-k-k/aquapi_backend 
 - https://github.com/d-e-k-k/aquapi_aquarium_controller
 
