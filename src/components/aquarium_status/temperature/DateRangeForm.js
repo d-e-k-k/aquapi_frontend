@@ -6,7 +6,16 @@ import { apiUrl } from '../../../config';
 
 console.log(apiUrl)
 const m = moment();
-let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
+let mm = (m.month() + 1).toString();
+let dd = (m.date()).toString();
+if(mm.length === 1){
+	mm = `0${mm}`
+}
+if (dd.length === 1) {
+	dd = `0${dd}`;
+}
+
+let current_formatted_date = `${m.year()}-${mm}-${dd}`;
 
 const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 	const [date, setDate] = useState({

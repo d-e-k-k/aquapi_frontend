@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { apiUrl } from '../../config';
 
 const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 	const initialFormState = {
@@ -25,7 +26,7 @@ const Login = ({ authenticated, setAuthenticated, setDisplayLogin }) => {
 		event.preventDefault();
 		axios({
 			method: 'POST',
-			url: 'https://mighty-lake-45709.herokuapp.com/token/login/',
+			url: `${apiUrl}token/login/`,
 			data: {
 				email: formState.email,
 				password: formState.password,
