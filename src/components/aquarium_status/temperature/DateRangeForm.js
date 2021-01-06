@@ -64,7 +64,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 					required
 					onChange={handleDateChange}
 					className='input-login'
-					placeholder='DD-MM-YYYY'
+					placeholder='YYYY-MM-DD'
 				/>
 			</label>
 			<label>
@@ -76,7 +76,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 					required
 					onChange={handleDateChange}
 					className='input-login'
-					placeholder='DD-MM-YYYY'
+					placeholder='YYYY-MM-DD'
 				/>
 			</label>
 			<label>
