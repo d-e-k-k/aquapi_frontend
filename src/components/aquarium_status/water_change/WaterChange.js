@@ -25,9 +25,10 @@ const WaterChange = () => {
 					<p>
 						Interval: Every {waterChangeData.data[0].water_change_interval} days
 					</p>
+					<button>Changed Water</button>
 				</div>
 			) : (
-				console.log('loading')
+				null
 			)}
 		</div>
 	);

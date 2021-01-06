@@ -1,10 +1,10 @@
 import React from 'react';
-let x = window.outerWidth;
-console.log(x);
+
+
 const home = () => {
 	return (
-		<div class='home-background'>
-			<div class='home-text'>
+		<div className='home-background'>
+			<div className='home-text'>
 				<h2>Welcome...</h2>
 				<h3>What is AquaPi?</h3>
 				<p>

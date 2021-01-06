@@ -1,24 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import axios from 'axios';
+import { Label } from 'recharts';
+import { apiUrl } from '../../../config';
+
 
 const m = moment();
-let current_formatted_date = `${m.date()}-${m.month() + 1}-${m.year()}`;
+let mm = (m.month() + 1).toString();
+let dd = (m.date()).toString();
+if(mm.length === 1){
+	mm = `0${mm}`
+}
+if (dd.length === 1) {
+	dd = `0${dd}`;
+}
 
-const DateRangeForm = ({ setTemperatureData }) => {
+let current_formatted_date = `${m.year()}-${mm}-${dd}`;
+
+const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 	const [date, setDate] = useState({
 		start: current_formatted_date,
 		end: current_formatted_date,
 	});
 	const [refresh, setRefresh] = useState(false);
+	
+
+	function handleRadioSelect(event){
+		console.log(event.target.dataset.url);
+		setRadioBtn(event.target.dataset.url)
+	}
+
 	function handleDateChange(event) {
 		setDate({ ...date, [event.target.id]: event.target.value });
 	}
 
-	const url = 'https://mighty-lake-45709.herokuapp.com/temperatures/range/';
+	
+	
+	
 	useEffect(() => {
 		axios
-			.get(url, { params: { start: date.start, end: date.end } })
+			.get(`${apiUrl}${radioBtn}`, {
+				params: { start: date.start, end: date.end },
+			})
 			.then((res) => {
 				setTemperatureData(res.data);
 			})
@@ -40,8 +63,8 @@ const DateRangeForm = ({ setTemperatureData }) => {
 					defaultValue={date.start}
 					required
 					onChange={handleDateChange}
-					class='input-login'
-					placeholder='DD-MM-YYYY'
+					className='input-login'
+					placeholder='YYYY-MM-DD'
 				/>
 			</label>
 			<label>
@@ -52,11 +75,33 @@ const DateRangeForm = ({ setTemperatureData }) => {
 					defaultValue={date.end}
 					required
 					onChange={handleDateChange}
-					class='input-login'
-					placeholder='DD-MM-YYYY'
+					className='input-login'
+					placeholder='YYYY-MM-DD'
 				/>
 			</label>
-			<button type='submit' class='login-button'>
+			<label>
+				Hourly
+				<input
+					type='radio'
+					id='hourly'
+					value='hourly'
+					name='view'
+					onClick={handleRadioSelect}
+					data-url='temperatures/range/'
+				/>
+			</label>
+			<label>
+				Daily
+				<input
+					type='radio'
+					id='daily'
+					value='daily'
+					name='view'
+					onClick={handleRadioSelect}
+					data-url='temperatures/interval/'
+				/>
+			</label>
+			<button type='submit' className='login-button'>
 				Submit
 			</button>
 		</form>

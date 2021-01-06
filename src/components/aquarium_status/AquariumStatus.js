@@ -8,30 +8,32 @@ import TemperatureGraph from './temperature/TemperatureGraph';
 import DateRangeForm from './temperature/DateRangeForm';
 
 const AquariumStatus = () => {
-	const [temperatureData, setTemperatureData] = useState();
+	const [temperatureData, setTemperatureData] = useState([]);
+	const [keys, setKeys] = useState();
+	const [radioBtn, setRadioBtn] = useState('temperatures/range/');
 	return (
 		<div>
-			<div class='status-container'>
-				<div class='card basic-info cgi'>
+			<div className='status-container'>
+				<div className='card basic-info cgi'>
 					<BasicInfo />
 				</div>
-				<div class='card equipment cgi'>
+				<div className='card equipment cgi'>
 					<EquipmentInfo />
 				</div>
-				<div class='card fish cgi'>
+				<div className='card fish cgi'>
 					<FishInfo />
 				</div>
-				<div class='card water cgi'>
+				<div className='card water cgi'>
 					<WaterChange />
 				</div>
-				<div class='card date cgi'>
-					<DateRangeForm setTemperatureData={setTemperatureData} />
+				<div className='card date cgi'>
+					<DateRangeForm setTemperatureData={setTemperatureData} radioBtn={radioBtn} setRadioBtn={setRadioBtn}/>
 				</div>
-				<div class='card graph-con cgi'>
-					<TemperatureGraph temperatureData={temperatureData} />
+				<div className='card graph-con cgi'>
+					<TemperatureGraph temperatureData={temperatureData} radioBtn={radioBtn} keys={keys} setKeys={setKeys}/>
 				</div>
-				<div class='card table-con cgi'>
-					<TemperatureTable temperatureData={temperatureData} />
+				<div className='card table-con cgi'>
+					<TemperatureTable temperatureData={temperatureData} radioBtn={radioBtn} keys={keys} setKeys={setKeys}/>
 				</div>
 			</div>
 		</div>
