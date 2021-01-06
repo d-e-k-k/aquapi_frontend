@@ -32,7 +32,7 @@ const NavBar = ({
 	return (
 		<header>
 			<h1>AquaPi</h1>
-			<ul class='links'>
+			<ul className='links'>
 				{displayDash ? (
 					<li onClick={openHome}>Home</li>
 				) : (

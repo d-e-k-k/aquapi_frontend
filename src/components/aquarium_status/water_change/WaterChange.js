@@ -28,7 +28,7 @@ const WaterChange = () => {
 					<button>Changed Water</button>
 				</div>
 			) : (
-				console.log('loading')
+				null
 			)}
 		</div>
 	);

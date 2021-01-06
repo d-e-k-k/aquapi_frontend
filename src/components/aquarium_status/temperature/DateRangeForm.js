@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Label } from 'recharts';
 import { apiUrl } from '../../../config';
 
-console.log(apiUrl)
+
 const m = moment();
 let mm = (m.month() + 1).toString();
 let dd = (m.date()).toString();
@@ -43,7 +43,6 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 				params: { start: date.start, end: date.end },
 			})
 			.then((res) => {
-				console.log(res.data);
 				setTemperatureData(res.data);
 			})
 			.catch(console.error);
@@ -64,7 +63,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 					defaultValue={date.start}
 					required
 					onChange={handleDateChange}
-					class='input-login'
+					className='input-login'
 					placeholder='DD-MM-YYYY'
 				/>
 			</label>
@@ -76,7 +75,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 					defaultValue={date.end}
 					required
 					onChange={handleDateChange}
-					class='input-login'
+					className='input-login'
 					placeholder='DD-MM-YYYY'
 				/>
 			</label>
@@ -102,7 +101,7 @@ const DateRangeForm = ({ setTemperatureData, setRadioBtn, radioBtn }) => {
 					data-url='temperatures/interval/'
 				/>
 			</label>
-			<button type='submit' class='login-button'>
+			<button type='submit' className='login-button'>
 				Submit
 			</button>
 		</form>

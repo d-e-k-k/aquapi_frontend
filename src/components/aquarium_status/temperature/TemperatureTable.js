@@ -18,18 +18,18 @@ const TemperatureTable = ({ temperatureData, keys, setKeys }) => {
 
 		return (
 			<ResponsiveContainer>
-				<div class='table'>
+				<div className='table'>
 					<div>
 						<table id='customers'>
 							<tr>{keys ? keys.map((key) => <th>{key}</th>) : null}</tr>
 						</table>
 					</div>
-					<div class='table-body'>
+					<div className='table-body'>
 						<table>
 							{temperatureData && temperatureData.length > 0
 								? temperatureData.map((data, i) => {
 										return (
-											<tr>
+											<tr key={temperatureData.id}>
 												{keys && keys.length > 0
 													? keys.map((key) => {
 															return <td>{data[key]}</td>;
