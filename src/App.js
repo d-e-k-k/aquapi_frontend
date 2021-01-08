@@ -12,7 +12,7 @@ function App() {
 	const [displayHome, setDisplayHome] = useState(true);
 
 	return (
-		<div className='App'>
+		<div >
 			<NavBar
 				authenticated={authenticated}
 				setAuthenticated={setAuthenticated}

@@ -31,19 +31,29 @@ const NavBar = ({
 
 	return (
 		<header>
-			<h1>AquaPi</h1>
 			<ul className='links'>
+				<li className="flex-more">
+					<h1>AquaPi</h1>
+				</li>
 				{displayDash ? (
-					<li onClick={openHome}>Home</li>
+					<li  onClick={openHome}>
+						<span>Home</span>
+					</li>
 				) : (
-					<li onClick={openDash}>Dash</li>
+					<li  onClick={openDash}>
+						<span>Dash</span>
+					</li>
 				)}
 				{authenticated ? (
-					<li onClick={handleSignOut}>Sign Out</li>
+					<li  onClick={handleSignOut}>
+						<span>Sign Out</span>
+					</li>
 				) : (
-					<li onClick={renderLoginPage}>Login</li>
+					<li  onClick={renderLoginPage}>
+						<span>Login</span>
+					</li>
 				)}
-				<li>Register</li>
+				<li ><span>Register</span></li>
 			</ul>
 		</header>
 	);
