@@ -132,6 +132,12 @@ img.avatar {
 	height: 99%;
 }
 
+.card ul,li{
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
 .cgi {
 	justify-self: center;
 	align-self: center;
