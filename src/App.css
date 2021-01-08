@@ -2,6 +2,12 @@
 	box-sizing: border-box;
 }
 
+
+body {
+margin: 0;
+padding: 0;
+}
+
 .temp_container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -205,6 +211,7 @@ img.avatar {
 	display: grid;
 	grid-template-columns: 1fr 80vw 1fr;
 	grid-template-rows: 1fr;
+	width: 100%;
 }
 
 div.home-text > h2 {
@@ -240,6 +247,8 @@ a:hover {
 
 ul {
 	list-style: none;
+	margin: 0;
+	padding-left: 0;
 }
 
 @media only screen and (max-width: 1200px) {
