@@ -3,6 +3,7 @@ import NavBar from './components/navbar/NavBar';
 import Login from './components/login/Login';
 import AquariumStatus from './components/aquarium_status/AquariumStatus';
 import Home from './components/home/home';
+import Register from './components/register/Register'
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 	const [displayLogin, setDisplayLogin] = useState(false);
 	const [displayDash, setDisplayDash] = useState(false);
 	const [displayHome, setDisplayHome] = useState(true);
+	const [displayRegister, setDisplayRegister] = useState(false)
 
 	return (
 		<div >
@@ -22,6 +24,7 @@ function App() {
 				setDisplayDash={setDisplayDash}
 				displayHome={setDisplayHome}
 				setDisplayHome={setDisplayHome}
+				setDisplayRegister={setDisplayRegister}
 			/>
 			{displayLogin ? (
 				<Login
@@ -30,6 +33,9 @@ function App() {
 					setDisplayLogin={setDisplayLogin}
 				/>
 			) : null}
+			{displayRegister ?
+			 <Register setDisplayRegister={setDisplayRegister}/>
+			 : null}
 			<main>{displayDash ? <AquariumStatus /> : <Home />}</main>
 		</div>
 	);
