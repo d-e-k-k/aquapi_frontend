@@ -5,6 +5,7 @@ import AquariumStatus from './components/aquarium_status/AquariumStatus';
 import Home from './components/home/home';
 import Register from './components/register/Register'
 import './App.css';
+import axios from 'axios';
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -12,6 +13,9 @@ function App() {
 	const [displayDash, setDisplayDash] = useState(false);
 	const [displayHome, setDisplayHome] = useState(true);
 	const [displayRegister, setDisplayRegister] = useState(false)
+
+	
+	axios.get('https://mighty-lake-45709.herokuapp.com/')
 
 	return (
 		<div >
