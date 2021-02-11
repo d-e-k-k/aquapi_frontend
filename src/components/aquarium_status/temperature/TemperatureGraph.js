@@ -32,15 +32,18 @@ const TemperatureGraph = ({ temperatureData, keys, setKeys }) => {
 			</ResponsiveContainer>
 		);
 	}else{
-		return(
+		return (
 			<div>
-				<h3>
-					Graph: No Data
-				</h3>
+				<h3>Graph: No Data</h3>
+				<h3>Possible Reason: </h3>
 				<p>The date range you selected had no data.</p>
 				<p>Please try another date range</p>
+				<p>
+					The Backedn is not awake. The backend is hosted on heroku and may take up to 30 seconds to wake
+					up and return data when you first access the application
+				</p>
 			</div>
-		)
+		);
 	}
 };
 
