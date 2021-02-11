@@ -8,6 +8,7 @@ const NavBar = ({
 	displayDash,
 	setDisplayDash,
 	setDisplayHome,
+	setDisplayRegister,
 }) => {
 	function handleSignOut() {
 		localStorage.removeItem('token');
@@ -16,6 +17,10 @@ const NavBar = ({
 
 	function renderLoginPage() {
 		setDisplayLogin(true);
+	}
+
+	function renderRegisterModal() {
+		setDisplayRegister(true)
 	}
 
 	function openDash() {
@@ -32,28 +37,30 @@ const NavBar = ({
 	return (
 		<header>
 			<ul className='links'>
-				<li className="flex-more">
+				<li className='flex-more'>
 					<h1>AquaPi</h1>
 				</li>
 				{displayDash ? (
-					<li  onClick={openHome}>
+					<li onClick={openHome}>
 						<span>Home</span>
 					</li>
 				) : (
-					<li  onClick={openDash}>
+					<li onClick={openDash}>
 						<span>Dash</span>
 					</li>
 				)}
 				{authenticated ? (
-					<li  onClick={handleSignOut}>
+					<li onClick={handleSignOut}>
 						<span>Sign Out</span>
 					</li>
 				) : (
-					<li  onClick={renderLoginPage}>
+					<li onClick={renderLoginPage}>
 						<span>Login</span>
 					</li>
 				)}
-				<li ><span>Register</span></li>
+				<li onClick={renderRegisterModal}>
+					<span>Register</span>
+				</li>
 			</ul>
 		</header>
 	);
