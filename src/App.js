@@ -6,7 +6,7 @@ import Home from './components/home/home';
 import Register from './components/register/Register'
 import './App.css';
 import axios from 'axios';
-import ReactGa, { pageview } from 'react-ga';
+import ReactGA, { pageview } from 'react-ga';
 require('dotenv').config();
 
 function App() {
@@ -18,10 +18,10 @@ function App() {
 
 	
 	axios.get('https://mighty-lake-45709.herokuapp.com/')
+	ReactGA.initialize(process.env.GA_UA);
 
 	useEffect(() => {
-		ReactGa.initialize(process.env.GA_UA);
-		ReactGa.pageview("/");
+		ReactGA.pageview(window.location.pathname + window.location.search); 
 	}, [])
 
 	return (
