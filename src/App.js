@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from './components/navbar/NavBar';
 import Login from './components/login/Login';
 import AquariumStatus from './components/aquarium_status/AquariumStatus';
@@ -6,6 +6,8 @@ import Home from './components/home/home';
 import Register from './components/register/Register'
 import './App.css';
 import axios from 'axios';
+import ReactGa, { pageview } from 'react-ga';
+import env from "react-dotenv";
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -16,6 +18,11 @@ function App() {
 
 	
 	axios.get('https://mighty-lake-45709.herokuapp.com/')
+
+	useEffect(() => {
+		ReactGa.initialize(env.GA_ID);
+		ReactGa.pageview("/");
+	}, [])
 
 	return (
 		<div >
