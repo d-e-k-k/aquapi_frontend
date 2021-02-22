@@ -7,7 +7,7 @@ import Register from './components/register/Register'
 import './App.css';
 import axios from 'axios';
 import ReactGa, { pageview } from 'react-ga';
-import env from "react-dotenv";
+require('dotenv').config();
 
 function App() {
 	const [authenticated, setAuthenticated] = useState(false);
@@ -20,7 +20,7 @@ function App() {
 	axios.get('https://mighty-lake-45709.herokuapp.com/')
 
 	useEffect(() => {
-		ReactGa.initialize(env.GA_ID);
+		ReactGa.initialize(process.env.GA_UA);
 		ReactGa.pageview("/");
 	}, [])
 
